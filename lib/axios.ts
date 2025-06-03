@@ -44,19 +44,26 @@ export const translateError = (
         }
         return serverMessage;
       }
-      return "Los datos enviados no son válidos";    case 401:
+      return "Los datos enviados no son válidos";
+    case 401:
       // Para errores de autenticación, usar el mensaje del servidor si está disponible
       if (serverMessage) {
-        if (serverMessage.toLowerCase().includes("credentials") || 
-            serverMessage.toLowerCase().includes("credenciales")) {
+        if (
+          serverMessage.toLowerCase().includes("credentials") ||
+          serverMessage.toLowerCase().includes("credenciales")
+        ) {
           return "Credenciales incorrectas. Verifica tu email y contraseña";
         }
-        if (serverMessage.toLowerCase().includes("password") || 
-            serverMessage.toLowerCase().includes("contraseña")) {
+        if (
+          serverMessage.toLowerCase().includes("password") ||
+          serverMessage.toLowerCase().includes("contraseña")
+        ) {
           return "Email o contraseña incorrectos";
         }
-        if (serverMessage.toLowerCase().includes("invalid") ||
-            serverMessage.toLowerCase().includes("inválido")) {
+        if (
+          serverMessage.toLowerCase().includes("invalid") ||
+          serverMessage.toLowerCase().includes("inválido")
+        ) {
           return "Email o contraseña incorrectos";
         }
         // Si el mensaje del servidor es específico, úsalo
@@ -101,8 +108,21 @@ export const translateError = (
   }
 };
 
+// Ensure the API base URL is an absolute URL
+const getApiBaseURL = () => {
+  let baseURL = process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:3001";
+
+  // If the baseURL doesn't start with http/https, it's likely a relative Railway URL
+  if (!baseURL.startsWith("http")) {
+    // For Railway deployment, ensure it's an absolute URL
+    baseURL = `https://${baseURL}`;
+  }
+
+  return baseURL;
+};
+
 const apiClient = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:3001", // Cambia la URL según tu backend
+  baseURL: getApiBaseURL(),
   timeout: 60000, // Tiempo máximo de espera en milisegundos
   headers: {
     "Content-Type": "application/json",
@@ -110,10 +130,21 @@ const apiClient = axios.create({
 });
 
 // Specialized client for QR-related requests
-const qrBaseURL =
-  process.env.NEXT_PUBLIC_BACKEND_URL_QR ||
-  process.env.NEXT_PUBLIC_API_BASE_URL ||
-  "http://localhost:3001";
+const getQRBaseURL = () => {
+  let qrBaseURL =
+    process.env.NEXT_PUBLIC_BACKEND_URL_QR ||
+    process.env.NEXT_PUBLIC_API_BASE_URL ||
+    "http://localhost:3001";
+
+  // If the URL doesn't start with http/https, it's likely a relative Railway URL
+  if (!qrBaseURL.startsWith("http")) {
+    qrBaseURL = `https://${qrBaseURL}`;
+  }
+
+  return qrBaseURL;
+};
+
+const qrBaseURL = getQRBaseURL();
 
 console.log("🎯 QR Client Base URL:", qrBaseURL);
 console.log("🔧 Environment variables:", {
@@ -142,7 +173,6 @@ apiClient.interceptors.request.use(
           const base64Url = token.split(".")[1];
           const base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
           const payload = JSON.parse(atob(base64));
-          
         } catch (e) {
           console.error("❌ Error decodificando token:", e);
         }
