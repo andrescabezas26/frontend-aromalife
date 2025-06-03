@@ -290,7 +290,6 @@ export default function CandlePage() {
                       height={400}
                       autoRotate={true}
                       className="shadow-lg"
-                      customModelUrl={candle.modelUrl} // Si hay un modelo personalizado
                     />
 
                     <p className="text-xs text-muted-foreground max-w-xs">
