@@ -72,7 +72,7 @@ export default function AromasPage() {
       <div className="space-y-6">
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-3xl font-bold tracking-tight">Aromas</h1>
+            <h1 data-testid="aromas-table" className="text-3xl font-bold tracking-tight">Aromas</h1>
             <p className="text-muted-foreground">
               Gestiona los aromas disponibles para las velas
             </p>

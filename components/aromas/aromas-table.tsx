@@ -30,12 +30,15 @@ interface AromasTableProps {
 export function AromasTable({ aromas, onDelete }: AromasTableProps) {
   const router = useRouter()
   const [aromaToDelete, setAromaToDelete] = useState<Aroma | null>(null)
-
   const handleDelete = async () => {
     if (!aromaToDelete) return
 
     try {
       await onDelete(aromaToDelete)
+    } catch (error) {
+      // Error is handled by the parent component
+      // We just ensure the dialog closes
+      console.error('Error deleting aroma:', error)
     } finally {
       setAromaToDelete(null)
     }
@@ -84,6 +87,7 @@ export function AromasTable({ aromas, onDelete }: AromasTableProps) {
                   <TableCell className="text-right">
                     <div className="flex justify-end gap-2">
                       <Button
+                        data-testid="view-aroma-button"
                         variant="ghost"
                         size="icon"
                         onClick={() => router.push(`/admin/management/aromas/${aroma.id}`)}

@@ -134,6 +134,7 @@ export default function WelcomePage() {
 
           <div className="text-center space-y-4">
             <Button
+              data-testid="start-personalization"
               size="lg"
               onClick={handleStart}
               disabled={isStarting}

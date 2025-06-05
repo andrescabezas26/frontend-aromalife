@@ -22,19 +22,13 @@ Bienvenido al frontend de **Aromalife**, una aplicación web diseñada para ofre
 1. Instalar dependencias:
 
    ```bash
-   pnpm install
+   yarn install
    ```
 
 2. Ejecutar el servidor de desarrollo:
 
    ```bash
-   pnpm dev
-   ```
-
-3. Para producción:
-
-   ```bash
-   pnpm build && pnpm start
+   yarn dev
    ```
 
 ### Acceder a la aplicación:
@@ -43,53 +37,54 @@ Bienvenido al frontend de **Aromalife**, una aplicación web diseñada para ofre
 ## Funcionalidades Clave del Frontend
 
 - **Personalización de velas**:
-  - Decorar espacios con test sensorial
-  - Sentir emociones con test emocional
+  - Decorar espacios
+  - Sentir emociones
   - Opciones para regalar
 
 - **Opciones avanzadas**:
   - Subir/generar imágenes, textos y audios
   - Visualización en realidad virtual
   - Generación de códigos QR
+  - Seguimiento de pedidos
+  - Administración de la aplicación por parte del admin
 
 - **Sistema de suscripciones**
+  - No se alcanzó a implementar
+
 - **Carrito de compras y checkout**
+  - Agregar velas o regalos al carrito de compras
+  - Proceso de pago con Mercado-Pago
 
 ## Pruebas
 
-Ejecutar pruebas:
+Ejecutar pruebas unitarias:
 
 ```bash
-pnpm test
+yarn test
+```
+
+Ejecutar pruebas e2e:
+
+```bash
+yarn playwright test
 ```
 
 ## Despliegue
 
-### Despliegue con Vercel (recomendado)
+### Despliegue con Railway
 
-1. Conectar tu repositorio a Vercel
-2. Configurar las variables de entorno
-3. El despliegue se activará automáticamente con cada push a la rama principal
+1. Url del dominio:
 
-### Despliegue Manual
-
-1. Construir la aplicación:
-
-   ```bash
-   pnpm build
+   ```url
+   https://frontend-aromalife-production.up.railway.app
    ```
-
-2. Los archivos estáticos se generan en la carpeta `.next/static`
-3. Desplegar en tu servidor preferido
 
 ## Documentación
 
 - [Next.js Documentation](https://nextjs.org/docs)
 - [React Documentation](https://reactjs.org/docs)
 - [pnpm Documentation](https://pnpm.io/es/documentation)
-- [Vercel Deployment](https://vercel.com/docs)
-
 
 ---
 
-¡Gracias por elegir Aromalife! 
+¡Gracias por elegir Aromalife!

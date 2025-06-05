@@ -34,7 +34,7 @@ export function AdminSidebar() {
     <div className="w-64 border-r bg-background h-screen">
       <div className="space-y-4 py-4">
         <div className="px-3 py-2">
-          <h2 className="mb-2 px-4 text-lg font-semibold tracking-tight">
+          <h2  data-testid="admin-nav" className="mb-2 px-4 text-lg font-semibold tracking-tight">
             Panel de Control
           </h2>
           <div className="space-y-1">     

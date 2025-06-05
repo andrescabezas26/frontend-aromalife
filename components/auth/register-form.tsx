@@ -192,11 +192,10 @@ export function RegisterForm() {
             name="name"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Nombre</FormLabel>
-                <FormControl>
-                  <Input placeholder="Tu nombre" {...field} />
-                </FormControl>
-                <FormMessage />
+                <FormLabel>Nombre</FormLabel>              <FormControl>
+                <Input data-testid="first-name-input" placeholder="Tu nombre" {...field} />
+              </FormControl>
+              <FormMessage data-testid="name-validation-error" />
               </FormItem>
             )}
           />
@@ -205,11 +204,10 @@ export function RegisterForm() {
             name="lastName"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Apellido</FormLabel>
-                <FormControl>
-                  <Input placeholder="Tu apellido" {...field} />
-                </FormControl>
-                <FormMessage />
+                <FormLabel>Apellido</FormLabel>              <FormControl>
+                <Input data-testid="last-name-input" placeholder="Tu apellido" {...field} />
+              </FormControl>
+              <FormMessage data-testid="lastname-validation-error" />
               </FormItem>
             )}
           />
@@ -220,11 +218,10 @@ export function RegisterForm() {
           name="email"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Email</FormLabel>
-              <FormControl>
-                <Input type="email" placeholder="tu@email.com" {...field} />
+              <FormLabel>Email</FormLabel>              <FormControl>
+                <Input type="email" data-testid="register-email-input" placeholder="tu@email.com" {...field} />
               </FormControl>
-              <FormMessage />
+              <FormMessage data-testid="email-validation-error" />
             </FormItem>
           )}
         />
@@ -234,11 +231,10 @@ export function RegisterForm() {
           name="password"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Contraseña</FormLabel>
-              <FormControl>
-                <Input type="password" placeholder="Tu contraseña" {...field} />
+              <FormLabel>Contraseña</FormLabel>              <FormControl>
+                <Input type="password" data-testid="register-password-input" placeholder="Tu contraseña" {...field} />
               </FormControl>
-              <FormMessage />
+              <FormMessage data-testid="password-validation-error" />
             </FormItem>
           )}
         />
@@ -271,11 +267,10 @@ export function RegisterForm() {
               name="phone"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Teléfono</FormLabel>
-                  <FormControl>
-                    <Input placeholder="Tu numero de celular" {...field} />
+                  <FormLabel>Teléfono</FormLabel>                  <FormControl>
+                    <Input data-testid="phone-input" placeholder="Tu numero de celular" {...field} />
                   </FormControl>
-                  <FormMessage />
+                  <FormMessage data-testid="phone-validation-error" />
                 </FormItem>
               )}
             />
@@ -390,9 +385,7 @@ export function RegisterForm() {
               <FormMessage />
             </FormItem>
           )}
-        />
-
-        <Button type="submit" className="w-full" disabled={isLoading}>
+        />        <Button type="submit" data-testid="register-button" className="w-full" disabled={isLoading}>
           {isLoading ? "Registrando..." : "Registrarse"}
         </Button>
       </form>

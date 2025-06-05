@@ -90,7 +90,9 @@ export default function AromaViewPage() {
             Volver
           </Button>
           <div>
-            <h1 className="text-3xl font-bold tracking-tight">{aroma.name}</h1>
+            <h1 
+            data-testid="aroma-details"
+            className="text-3xl font-bold tracking-tight">{aroma.name}</h1>
             <p className="text-muted-foreground">
               Detalles del aroma
             </p>
@@ -125,7 +127,7 @@ export default function AromaViewPage() {
           {/* Details Section */}
           <Card className="lg:col-span-2">
             <CardHeader>
-              <CardTitle>Información del Aroma</CardTitle>
+              <CardTitle data-testid="aroma-info" >Información del Aroma</CardTitle>
             </CardHeader>
             <CardContent className="space-y-6">
               {/* Name */}

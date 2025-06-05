@@ -264,6 +264,7 @@ export default function ShoppingCartPage() {
                   </Badge>
                 </div>
                 <Button
+                  data-testid="remove-item-button"
                   variant="ghost"
                   size="sm"
                   onClick={() => handleRemoveItem(item)}
@@ -366,6 +367,7 @@ export default function ShoppingCartPage() {
                     </Button>
                     <span className="w-8 text-center">{item.quantity}</span>
                     <Button
+                      data-testid="add-quantity-button"
                       variant="ghost"
                       size="icon"
                       className="h-8 w-8 rounded-none"

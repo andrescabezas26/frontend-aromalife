@@ -142,7 +142,7 @@ export default function AdminDashboard() {
       <div className="space-y-6">
         {/* Header */}
         <div>
-          <h1 className="text-3xl font-bold tracking-tight">Dashboard AromaLife</h1>
+          <h1  data-testid="admin-dashboard" className="text-3xl font-bold tracking-tight">Dashboard AromaLife</h1>
           <p className="text-muted-foreground">
             Resumen del sistema • {new Date().toLocaleDateString('es-ES', { 
               weekday: 'long', 
@@ -154,7 +154,7 @@ export default function AdminDashboard() {
         </div>
 
         {/* Stats Grid */}
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
+        <div data-testid="total-all" className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
           {statCards.map((stat, index) => (
             <Card key={index} className="hover:shadow-md transition-shadow duration-200">
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">

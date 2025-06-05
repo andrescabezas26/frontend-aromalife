@@ -136,7 +136,7 @@ export function OrdersTable({ orders, onStatusUpdate }: OrdersTableProps) {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Lista de Órdenes ({orders.length})</CardTitle>
+        <CardTitle data-testid="orders-table">Lista de Órdenes ({orders.length})</CardTitle>
       </CardHeader>
       <CardContent>
         <div className="rounded-md border overflow-hidden">

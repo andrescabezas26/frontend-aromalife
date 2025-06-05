@@ -35,10 +35,9 @@ export default function LoginPage() {
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-6">
-            <LoginForm />
-            <div className="text-center text-sm text-gray-600">
+            <LoginForm />            <div className="text-center text-sm text-gray-600">
               ¿No tienes una cuenta?{" "}
-              <Link href="/register" className="text-[#4BBDB7] hover:text-[#3A9B96] font-medium transition-colors">
+              <Link href="/register" data-testid="register-link" className="text-[#4BBDB7] hover:text-[#3A9B96] font-medium transition-colors">
                 Regístrate aquí
               </Link>
             </div>

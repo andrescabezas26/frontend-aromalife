@@ -152,12 +152,11 @@ const UserProfile: React.FC<UserProfileProps> = ({ user }) => {
             <div>
               <label className="text-sm font-medium text-gray-500">ID de Usuario</label>
               <p className="text-gray-900">{user.id}</p>
-            </div>
-              <div>
+            </div>              <div>
               <label className="text-sm font-medium text-gray-500">Estado</label>
               <p className="text-gray-900">
-                <Badge variant="default">
-                  Activo
+                <Badge variant={user.isActive ? "default" : "destructive"}>
+                  {user.isActive ? "Activo" : "Inactivo"}
                 </Badge>
               </p>
             </div>

@@ -84,13 +84,13 @@ export function NavItems() {
         </Link>
       )}
       {/* Cart Icon */}
-      <CartIcon className={cn(pathname === "/cart" && "bg-muted")} />
-      {/* Profile Dropdown */}
+      <CartIcon className={cn(pathname === "/cart" && "bg-muted")} />      {/* Profile Dropdown */}
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Button
             variant="ghost"
             className="relative h-10 w-10 rounded-full ml-4"
+            data-testid="user-menu"
           >
             <Avatar className="h-10 w-10">
               <AvatarImage
@@ -128,8 +128,7 @@ export function NavItems() {
               Mis Órdenes
             </Link>
           </DropdownMenuItem>
-          <DropdownMenuSeparator />
-          <DropdownMenuItem onClick={handleLogout} className="cursor-pointer">
+          <DropdownMenuSeparator />          <DropdownMenuItem onClick={handleLogout} className="cursor-pointer" data-testid="logout-button">
             <LogOut className="mr-2 h-4 w-4" />
             Cerrar Sesión
           </DropdownMenuItem>

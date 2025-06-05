@@ -197,7 +197,7 @@ export default function OrderDetailPage() {
             Volver a Órdenes
           </Button>
           <div className="flex-1">
-            <h1 className="text-3xl font-bold tracking-tight">
+            <h1 data-testid="order-details" className="text-3xl font-bold tracking-tight">
               Orden #{order.id.slice(-8)}
             </h1>
             <p className="text-muted-foreground">
